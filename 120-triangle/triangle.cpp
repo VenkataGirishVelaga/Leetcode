@@ -10,7 +10,7 @@ public:
         }
         for(int i = n - 2; i >= 0; i--){
             vector<int> curr(n, 0);
-            for(int j = i; j >= 0; j--){
+            for(int j = 0; j <= i; j++){
                 curr[j] = triangle[i][j] + min(prev[j], prev[j + 1]);
             }
             prev = curr;
