@@ -14,8 +14,6 @@ public:
         }
         int len = prev[m];
 
-        int a = n - len;
-        int b = m - len;
-        return a + b;
+        return (m - len + n - len);
     }
 };
