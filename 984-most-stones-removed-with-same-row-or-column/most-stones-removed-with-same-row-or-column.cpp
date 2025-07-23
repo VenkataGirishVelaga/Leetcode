@@ -38,17 +38,17 @@ public:
             maxcol = max(maxcol, it[1]);
         }
         disjoint ds(maxrow + maxcol + 2);
-        unordered_map<int, int> mpp;
+        unordered_set<int> s;
         for(auto& it : stones){
             int rownode = it[0];
             int colnode = it[1] + maxrow + 1;
             ds.unionsz(rownode, colnode);
-            mpp[rownode] = 1;
-            mpp[colnode] = 1;
+            s.insert(rownode);
+            s.insert(colnode);
         }
         int cnt = 0;
-        for(auto& it : mpp){
-            if(ds.findup(it.first) == it.first) cnt++;
+        for(int it : s){
+            if(ds.findup(it) == it) cnt++;
         }
         return n - cnt;
     }
